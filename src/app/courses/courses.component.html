@@ -4,7 +4,48 @@
     <!-- <p class="card-category"></p> -->
   </div>
   <div class="card-body">
-    <div class="tab-content">
+
+    <div *ngIf="api.terms$ | async as terms; else loadingTerms">
+      <mat-form-field>
+        <mat-label>Term</mat-label>
+        <mat-select [(value)]="selectedTerm" (selectionChange)=termChanged($event)>
+          <mat-option *ngFor="let term of terms" [value]="term">
+            {{term}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+
+    <div *ngIf="api.courses$ | async as courses; else loadingCourses">
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+      <!-- <mat-form-field>
+        <mat-label></mat-label>
+        <mat-select (selectionChange)=termChanged($event)>
+          <mat-option *ngFor="let term of terms" [value]="term">
+            {{term}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field> -->
+    </div>
+
+    <!-- <button mat-button (click)="test()">test</button> -->
+
+
+
+    <!-- <div class="tab-content">
       <table class="table">
         <tbody>
           <tr>
@@ -104,6 +145,6 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
   </div>
 </div>
