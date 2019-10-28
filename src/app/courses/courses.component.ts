@@ -6,6 +6,7 @@ import { map, startWith } from 'rxjs/operators';
 
 import { RawSection } from '../scheduler.model';
 import { ApiService } from '../api.service';
+import { SchedulerService } from 'app/scheduler/scheduler.service';
 
 export interface Term {
   value: string;
@@ -26,13 +27,14 @@ export class CoursesComponent implements OnInit {
   selectedTerm: String;
   terms: String[];
   courseKeys: string[];
-  selectedCourses: String[] = [];
+  selectedCourses: String[];
   courses: {};
 
 
-  constructor(public api: ApiService) { }
+  constructor(public api: ApiService, public scheduler: SchedulerService) { }
 
   ngOnInit() {
+    this.scheduler.selected.subscribe(data => this.selectedCourses = data);
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -98,9 +100,9 @@ export class CoursesComponent implements OnInit {
   }
 
   selectCourse(key: string) {
-    this.selectedCourses.push(key);
-    console.log(this.selectedCourses);
-    console.log(this.courses[key]);
+    this.scheduler.addSelected(key);
+    // console.log(this.scheduler.selected);
+    // console.log(this.courses[key]);
     this.myControl.reset();
   }
 

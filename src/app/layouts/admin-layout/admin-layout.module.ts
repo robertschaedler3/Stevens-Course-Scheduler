@@ -21,7 +21,8 @@ import {
   MatTooltipModule,
   MatSelectModule,
   MatAutocompleteModule,
-  MatGridListModule
+  MatGridListModule,
+  MatProgressBarModule
 } from '@angular/material';
 import { SectionBlockComponent } from '../../section-block/section-block.component';
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
@@ -38,7 +39,8 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     MatSelectModule,
     MatTooltipModule,
     MatAutocompleteModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressBarModule
   ],
   declarations: [
     DashboardComponent,
