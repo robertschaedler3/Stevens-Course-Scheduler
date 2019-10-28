@@ -23,6 +23,7 @@ import {
   MatAutocompleteModule,
   MatGridListModule
 } from '@angular/material';
+import { SectionBlockComponent } from '../../section-block/section-block.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -46,7 +47,8 @@ import {
     NotificationsComponent,
     UpgradeComponent,
     CoursesComponent,
-    CalendarComponent
+    CalendarComponent,
+    SectionBlockComponent
   ]
 })
 
