@@ -1,8 +1,3 @@
-.center {
-    align-content: center;
-    text-align: center;
-}
-
 .internal-grid{
     min-width:100%;
 }
@@ -19,8 +14,14 @@
     height: 15px;
 }
 
+.header-container {
+    align-content: center;
+    text-align: center;
+}
+
 .header {
     height: 5px;
+    margin-bottom: 20px
 }
 
 .hour {
@@ -30,9 +31,14 @@
 .hour-block {
    background: #d3d3d3;
    border: solid #fff 1px;
-   border-radius: 3px;
+   border-radius: 5px 0px 0px 5px;
 }
 
 .spacer {
     margin-bottom: 20px;
+}
+
+.course-section {
+    position: absolute;
+    background: red;
 }

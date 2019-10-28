@@ -2,65 +2,14 @@
   <div class="card-body">
     <div class="row">
       <div class="col-1">
-        <div class="row header spacer">
-          <h6></h6>
-        </div>
+        <div class="row header spacer"></div>
         <div *ngFor="let hour of hours" class="row full-block hour-block">
           <h6 class="hour">{{hour}}</h6>
         </div>
       </div>
-      <div #monday class="col header">
-        <h6 class="center">Monday</h6>
-        <div *ngFor="let hour of hours" class="row">
-          <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
-        </div>
+      <div #weekdays *ngFor="let day of days" class="col day">
+        <app-day-column>{{day}}</app-day-column>
       </div>
-      <div #tuesday class="col header">
-        <h6 class="center">Tuesday</h6>
-        <div *ngFor="let hour of hours" class="row">
-          <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
-        </div>
-      </div>
-      <div #wednesday class="col header">
-        <h6 class="center">Wednesday</h6>
-        <div *ngFor="let hour of hours" class="row">
-          <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
-        </div>
-      </div>
-      <div #thursday class="col header">
-        <h6 class="center">Thursday</h6>
-        <div *ngFor="let hour of hours" class="row">
-          <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
-        </div>
-      </div>
-      <div #friday class="col header">
-        <h6 class="center">Friday</h6>
-        <div *ngFor="let hour of hours" class="row">
-          <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
-        </div>
-      </div>
-
-
-      <!-- <mat-grid-list cols="11" rowHeight="15px">
-          <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows"
-            [style.background]="tile.color">
-
-            <div *ngIf="tile.text === 'main'; else notMain" class="internal-grid">
-              <mat-grid-list cols="5" rowHeight="15px">
-                <mat-grid-tile *ngFor="let gridTile of mainGrid" [colspan]="1" [rowspan]="1"
-                  [style.background]="'#eee'">
-                </mat-grid-tile>
-              </mat-grid-list>
-            </div>
-
-            <ng-template #notMain>
-              {{tile.text}}
-            </ng-template>
-
-          </mat-grid-tile>
-        </mat-grid-list> 
-
-      </div>-->
     </div>
   </div>
 </div>
