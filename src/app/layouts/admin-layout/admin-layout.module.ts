@@ -24,6 +24,7 @@ import {
   MatGridListModule
 } from '@angular/material';
 import { SectionBlockComponent } from '../../section-block/section-block.component';
+import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -48,7 +49,8 @@ import { SectionBlockComponent } from '../../section-block/section-block.compone
     UpgradeComponent,
     CoursesComponent,
     CalendarComponent,
-    SectionBlockComponent
+    SectionBlockComponent,
+    SelectedOptionsComponent
   ]
 })
 
