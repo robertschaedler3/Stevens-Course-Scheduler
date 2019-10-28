@@ -49,7 +49,7 @@ export class CoursesComponent implements OnInit {
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
-    let keys = Object.keys(this.courses);
+    let keys = (this.courses === {}) ? [] : Object.keys(this.courses);
     let end = (this.courseKeys.length > 10) ? 50 : this.courseKeys.length - 1;
     return this.courseKeys.filter(option => option.toLowerCase().includes(filterValue)).slice(0, end);
   }
