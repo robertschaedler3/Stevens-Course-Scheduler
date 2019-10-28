@@ -1,12 +1,38 @@
+.center {
+    align-content: center;
+    text-align: center;
+}
+
 .internal-grid{
     min-width:100%;
 }
 
 .full-block {
-    border: solid #333 2px;
+    // border: solid #333 2px;
+    height:60px;
 }
 
 .inner-block {
-    border: solid #575757 1px;
+    border: solid #fff 1px;
+    border-radius: 3px;
+    background: #eee;
     height: 15px;
+}
+
+.header {
+    height: 5px;
+}
+
+.hour {
+    padding: 4px;
+}
+
+.hour-block {
+   background: #acacac;
+   border: solid #fff 1px;
+   border-radius: 3px;
+}
+
+.spacer {
+    margin-bottom: 20px;
 }
