@@ -1,6 +1,6 @@
 <div class="card">
 
-  <div class="card-header card-header-warning">
+  <div class="card-header card-header-primary">
     <h4 class="card-title">Courses</h4>
   </div>
 
@@ -17,6 +17,12 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <ng-template #loadingTerms>
+      <div class="center">
+        <p>Loading terms...</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+    </ng-template>
 
     <!-- Course Search -->
     <div *ngIf="api.courses$ | async as courses; else loadingCourses">
@@ -33,6 +39,12 @@
         </mat-form-field>
       </form>
     </div>
+    <ng-template #loadingCourses>
+      <div class="center">
+        <p>Loading courses...</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+    </ng-template>
 
   </div>
 
