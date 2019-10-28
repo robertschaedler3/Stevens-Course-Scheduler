@@ -31,9 +31,7 @@ export class CalendarComponent implements OnInit {
 
     { text: '8AM', cols: 1, rows: 4, color: '#ddd' },
 
-    {
-      text: "main", cols: 10, rows: 52, color: ''
-    },
+    { text: "main", cols: 10, rows: 52, color: '' },
 
     { text: '9AM', cols: 1, rows: 4, color: '#ddd' },
     { text: '10AM', cols: 1, rows: 4, color: '#ddd' },
@@ -51,7 +49,7 @@ export class CalendarComponent implements OnInit {
 
 
   constructor() {
-    this.mainGrid = Array.from(Array(260), (x, i) => i);
+    this.mainGrid = Array.from(Array(13 * 4), (x, i) => i);
   }
 
   ngOnInit() {
