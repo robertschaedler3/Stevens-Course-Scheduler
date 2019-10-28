@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import * as _ from 'lodash';
 
@@ -15,9 +15,6 @@ export class ApiService {
   private baseUrl = 'https://stevens-scheduler.cfapps.io/p';
   terms$: Observable<string[]>;
   courses$: Observable<Array<RawSection>>;
-
-  // private selectedSectionSource: BehaviorSubject<string> = new BehaviorSubject('');
-  // currentSelectedSection = this.selectedSectionSource.asObservable();
 
   constructor(private http: HttpClient) {
     this.getTerms();
@@ -40,11 +37,8 @@ export class ApiService {
   getCourses(term: string) {
     return this.courses$ = this.http.get<Array<RawSection>>(this.baseUrl + '/' + term).pipe(
       map(data => _.values(data)),
-      tap(console.log),
+      // tap(console.log),
     );
   }
-
-
-
 
 }
