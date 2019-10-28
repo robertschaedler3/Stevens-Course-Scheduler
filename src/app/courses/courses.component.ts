@@ -24,9 +24,9 @@ export class CoursesComponent implements OnInit {
   filteredOptions: Observable<string[]>;
 
   selectedTerm: String;
-  terms: String[]
-  courseKeys: string[]
-  selectedCourses: String[];
+  terms: String[];
+  courseKeys: string[];
+  selectedCourses: String[] = [];
   courses: {};
 
 
@@ -48,13 +48,16 @@ export class CoursesComponent implements OnInit {
   }
 
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    let keys = (this.courses === {}) ? [] : Object.keys(this.courses);
-    let end = (this.courseKeys.length > 10) ? 50 : this.courseKeys.length - 1;
-    return this.courseKeys.filter(option => option.toLowerCase().includes(filterValue)).slice(0, end);
+    if (value != null) {
+      const filterValue = value.toLowerCase();
+      // let keys = (this.courses === {}) ? [] : Object.keys(this.courses);
+      let end = (this.courseKeys.length > 10) ? 50 : this.courseKeys.length - 1;
+      return this.courseKeys.filter(option => option.toLowerCase().includes(filterValue)).slice(0, end);
+    }
+    return [''];
   }
 
-  public termChanged(event): void {  // event will give you full brief of action
+  termChanged(event): void {  // event will give you full brief of action
     const term = event.value;
     this.selectedTerm = term;
     this.api.getCourses(term).subscribe(courses => {
@@ -79,7 +82,7 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  public processCourses(rawSections: RawSection[]) {
+  processCourses(rawSections: RawSection[]) {
     this.courses = {};
     rawSections.forEach(section => {
       let key = this.getSectionAbrv(section.section) + ": " + section.title;
@@ -91,10 +94,13 @@ export class CoursesComponent implements OnInit {
       }
     });
     this.courseKeys = Object.keys(this.courses);
-
-    // console.log(this.courses);
   }
 
-
+  selectCourse(key: string) {
+    this.selectedCourses.push(key);
+    console.log(this.selectedCourses);
+    console.log(this.courses[key]);
+    this.myControl.reset();
+  }
 
 }
