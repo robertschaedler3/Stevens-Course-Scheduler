@@ -12,6 +12,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
 import { CoursesComponent } from '../../courses/courses.component';
 import { CalendarComponent } from '../../calendar/calendar.component';
+import { DayColumnComponent } from '../../calendar/day-column/day-column.component';
 
 import {
   MatButtonModule,
@@ -52,7 +53,8 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     CoursesComponent,
     CalendarComponent,
     SectionBlockComponent,
-    SelectedOptionsComponent
+    SelectedOptionsComponent,
+    DayColumnComponent
   ]
 })
 
