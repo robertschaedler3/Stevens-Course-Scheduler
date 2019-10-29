@@ -14,9 +14,13 @@
     text-align: center;
 }
 
-.day {
+.day-content {
     // width: auto;
-    position: relative;
+    // position: absolute;
+    background: red;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 100;
 }
 
 .course-section {
@@ -27,4 +31,5 @@
     max-width: 100%;
     opacity: 50%;
 }
+
 
