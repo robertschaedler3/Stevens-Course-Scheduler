@@ -31,7 +31,7 @@
 .hour-block {
    background: #d3d3d3;
    border: solid #fff 1px;
-   border-radius: 5px 0px 0px 5px;
+   border-radius: 7px 0px 0px 7px;
 }
 
 .spacer {
@@ -41,4 +41,8 @@
 .course-section {
     position: absolute;
     background: red;
+}
+
+.days-container {
+    flex-wrap: nowrap;
 }

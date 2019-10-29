@@ -14,6 +14,8 @@ import { CoursesComponent } from '../../courses/courses.component';
 import { CalendarComponent } from '../../calendar/calendar.component';
 import { DayColumnComponent } from '../../calendar/day-column/day-column.component';
 
+import { ColumnLoaderService } from '../../calendar/services/column-loader.service';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -55,7 +57,9 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     SectionBlockComponent,
     SelectedOptionsComponent,
     DayColumnComponent
-  ]
+  ],
+  providers: [ColumnLoaderService],
+  entryComponents: [DayColumnComponent]
 })
 
 export class AdminLayoutModule { }

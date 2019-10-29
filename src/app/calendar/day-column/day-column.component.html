@@ -1,8 +1,11 @@
-<div class="header-container">
-  <h6 class="center header">
-    <ng-content></ng-content>
-  </h6>
-</div>
-<div *ngFor="let hour of hours" class="row">
-  <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
+<div class="col day">
+  <div class="header-container">
+    <h6 class="center header">
+      {{day}}
+      <!-- <ng-content></ng-content> -->
+    </h6>
+  </div>
+  <div *ngFor="let hour of hours" class="row">
+    <div *ngFor="let num of [0,1,2,3]" class="col-12 inner-block"></div>
+  </div>
 </div>

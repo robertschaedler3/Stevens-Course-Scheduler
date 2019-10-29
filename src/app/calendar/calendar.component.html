@@ -1,5 +1,10 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-body center">
+    <div class="row">
+      <div class="col">
+        <button matButton (click)="test()">Test</button>
+      </div>
+    </div>
     <div class="row">
       <div class="col-1">
         <div class="row header spacer"></div>
@@ -7,9 +12,14 @@
           <h6 class="hour">{{hour}}</h6>
         </div>
       </div>
-      <div #weekdays *ngFor="let day of days" class="col day">
-        <app-day-column>{{day}}</app-day-column>
+      <div class="col">
+        <div class="row days-container">
+          <ng-template #weekdays></ng-template>
+        </div>
       </div>
+      <!-- <div #weekdays *ngFor="let day of days" class="col day">
+        <app-day-column>{{day}}</app-day-column>
+      </div> -->
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ViewChild, ViewChildren, QueryList } from '@angular/core';
+import { Component, ViewChild, QueryList, OnInit, ViewContainerRef, Inject } from '@angular/core';
 
+import { ColumnLoaderService } from './services/column-loader.service';
 
 export interface Tile {
   color: string;
@@ -13,30 +14,59 @@ export interface Tile {
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
-export class CalendarComponent implements AfterViewInit {
+export class CalendarComponent implements OnInit {
 
-  @ViewChildren('weekdays') weekdayCols: QueryList<any>;
+  @ViewChild('weekdays', {
+    read: ViewContainerRef,
+    static: true,
+  }) viewContainerRef: ViewContainerRef
 
-  hours: String[] = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM"];
-  days: String[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  hours: string[] = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM"];
+  days: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
-  // mainGrid: number[] = [];
+  service: any;
 
-  constructor() {
-    // this.mainGrid = Array.from(Array(13 * 4), (x, i) => i);
+  dayCols = {};
+
+  constructor(@Inject(ColumnLoaderService) service) {
+    this.service = service
   }
 
-  ngAfterViewInit() {
-    console.log("COLS")
-    console.log(this.weekdayCols);
+  ngOnInit() {
+    this.service.setRootViewContainerRef(this.viewContainerRef);
+    this.days.forEach(day => {
+      let component = this.service.addDynamicComponent();
+      component.instance.day = day;
+      this.dayCols[day] = component;
+    });
+    console.log(this.dayCols['Monday']);
+
 
   }
 
-  displayCourse() {
-    let course = { days: 'M', start: '8:30', end: "9:45" };
-    this.weekdayCols[0]
-    // this.mainGrid[60] = { text: '60', cols: 1, rows: 4, color: 'pink' }
+  displayCourse(weekdays: string, start: string) {
+    for (let i = 0; i < weekdays.length; i++) {
+      let col = null;
+      switch (weekdays.charAt(i)) {
+        case 'M':
+          col = this.dayCols['Monday'].instance;
+        case 'T':
+          col = this.dayCols['Tuesday'].instance;
+        case 'W':
+          col = this.dayCols['Wednesday'].instance;
+        case 'R':
+          col = this.dayCols['Thursday'].instance;
+        case 'F':
+          col = this.dayCols['Friday'].instance;
+      }
+
+    }
   }
+
+  test() {
+    this.displayCourse('MWF', '11')
+  }
+
 
 
 
