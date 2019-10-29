@@ -27,7 +27,7 @@ import {
   MatGridListModule,
   MatProgressBarModule
 } from '@angular/material';
-import { SectionBlockComponent } from '../../section-block/section-block.component';
+import { SectionBlockComponent } from '../../calendar/section-block/section-block.component';
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 @NgModule({
   imports: [
