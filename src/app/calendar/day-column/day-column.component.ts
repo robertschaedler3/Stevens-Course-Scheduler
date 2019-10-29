@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { CourseLoaderService } from '../services/course-loader.service';
 
 @Component({
   selector: 'app-day-column',
@@ -18,12 +17,14 @@ export class DayColumnComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+  }
 
   public addCourse(id: string, startTime: string, endTime: string) {
     this.ids.push(id);
     this.sections[id] = {
-      'name': 'test',
+      'name': 'AAI 800A: Special Prob in AAI(Masters)',
       'id': id,
       'start': startTime,
       'end': endTime
