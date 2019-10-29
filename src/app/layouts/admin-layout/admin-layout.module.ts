@@ -13,8 +13,10 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { CoursesComponent } from '../../courses/courses.component';
 import { CalendarComponent } from '../../calendar/calendar.component';
 import { DayColumnComponent } from '../../calendar/day-column/day-column.component';
+import { SectionBlockComponent } from '../../calendar/section-block/section-block.component';
 
 import { ColumnLoaderService } from '../../calendar/services/column-loader.service';
+import { CourseLoaderService } from '../../calendar/services/course-loader.service';
 
 import {
   MatButtonModule,
@@ -25,9 +27,9 @@ import {
   MatSelectModule,
   MatAutocompleteModule,
   MatGridListModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatButtonToggleModule
 } from '@angular/material';
-import { SectionBlockComponent } from '../../calendar/section-block/section-block.component';
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 @NgModule({
   imports: [
@@ -43,7 +45,8 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     MatTooltipModule,
     MatAutocompleteModule,
     MatGridListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonToggleModule
   ],
   declarations: [
     DashboardComponent,
@@ -54,12 +57,10 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     UpgradeComponent,
     CoursesComponent,
     CalendarComponent,
-    SectionBlockComponent,
     SelectedOptionsComponent,
-    DayColumnComponent
-  ],
-  providers: [ColumnLoaderService],
-  entryComponents: [DayColumnComponent]
+    DayColumnComponent,
+    SectionBlockComponent
+  ]
 })
 
 export class AdminLayoutModule { }
