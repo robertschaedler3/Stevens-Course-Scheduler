@@ -14,7 +14,7 @@
       </div>
       <div class="col">
         <div class="row days-container">
-          <ng-template #weekdays></ng-template>
+          <app-day-column #col *ngFor="let day of days" [day]="day"></app-day-column>
         </div>
       </div>
     </div>
