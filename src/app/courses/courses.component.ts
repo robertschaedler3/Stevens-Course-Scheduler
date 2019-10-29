@@ -27,9 +27,8 @@ export class CoursesComponent implements OnInit {
   selectedTerm: String;
   terms: String[];
   courseKeys: string[];
-  selectedCourses: String[];
+  selectedCourses: string[] = [];
   courses: {};
-
 
   constructor(public api: ApiService, public scheduler: SchedulerService) { }
 
@@ -52,7 +51,6 @@ export class CoursesComponent implements OnInit {
   private _filter(value: string): string[] {
     if (value != null) {
       const filterValue = value.toLowerCase();
-      // let keys = (this.courses === {}) ? [] : Object.keys(this.courses);
       let end = (this.courseKeys.length > 10) ? 50 : this.courseKeys.length - 1;
       return this.courseKeys.filter(option => option.toLowerCase().includes(filterValue) && !this.selectedCourses.includes(option)
       ).slice(0, end);
@@ -85,7 +83,7 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  processCourses(rawSections: RawSection[]) {
+  private processCourses(rawSections: RawSection[]) {
     this.courses = {};
     rawSections.forEach(section => {
       let key = this.getSectionAbrv(section.section) + ": " + section.title;
@@ -97,12 +95,12 @@ export class CoursesComponent implements OnInit {
       }
     });
     this.courseKeys = Object.keys(this.courses);
+    this.scheduler.setCourses(this.courses);
   }
 
   selectCourse(key: string) {
+    console.log(key);
     this.scheduler.addSelected(key);
-    // console.log(this.scheduler.selected);
-    // console.log(this.courses[key]);
     this.myControl.reset();
   }
 
