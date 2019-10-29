@@ -1,3 +1,23 @@
-<p>
-  selected-options works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h6>Selected:</h6>
+        <div class="row">
+          <div *ngIf="selected.length != 0 && selected[0] != ''">
+            <div *ngFor="let course of selected" class="col-12">
+              <h4>{{course}}</h4>
+              <mat-button-toggle-group #group="matButtonToggleGroup">
+                <mat-button-toggle *ngFor="let section of courses[course]" [value]="section">
+                  {{getSection(section.section)}}
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+              <div *ngIf="group.value">Selected: {{group.value.callNumber | json}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
