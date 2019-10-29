@@ -15,6 +15,16 @@
 }
 
 .day {
-    width: auto;
+    // width: auto;
+    position: relative;
+}
+
+.course-section {
+    position: absolute;
+    align-content: center;
+    z-index: 100;
+    background: green;
+    max-width: 100%;
+    opacity: 50%;
 }
 
