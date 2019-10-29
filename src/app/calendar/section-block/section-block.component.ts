@@ -1,27 +1,31 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-section-block',
   templateUrl: './section-block.component.html',
   styleUrls: ['./section-block.component.scss']
 })
-export class SectionBlockComponent implements OnInit {
+export class SectionBlockComponent {
 
-  @Input() startTime: string;
-  @Input() endTime: string;
+  height = 60;
+  @Input() start;
+  @Input() end;
+  @Input() name;
+  @Input() id;
 
-  @Input() name: string;
-  @Input() id: string;
+  private offset = 25;
 
-  @ViewChild('mainCard', { static: false }) card: ElementRef;
-
-  constructor() {
-
+  private timeToPixels(time: string) {
+    let parts = time.split(':');
+    return (parseInt(parts[0]) - 8) * 60 + parseInt(parts[1] + this.offset);
   }
 
-  ngOnInit() {
-    // this.card.nativeElement.style = ""
+  startTime() {
+    return (this.timeToPixels(this.start)).toString() + "px";
+  }
 
+  duration() {
+    return (this.timeToPixels(this.end) - this.timeToPixels(this.start)).toString() + 'px';
   }
 
 }
