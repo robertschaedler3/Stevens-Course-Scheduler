@@ -1,35 +1,14 @@
+.header-container {
+    align-content: center;
+    text-align: center;
+    // background: #444;
+    color: #333;
+    border-radius: 5px 5px 0px 0px;
+}
+
 .inner-block {
     border: solid #fff 1px;
     border-radius: 3px;
     background: #eee;
     height: 15px;
 }
-.header {
-    height: 5px;
-    margin-bottom: 20px
-}
-
-.header-container {
-    align-content: center;
-    text-align: center;
-}
-
-.day-content {
-    // width: auto;
-    // position: absolute;
-    background: red;
-    height: 100%;
-    box-sizing: border-box;
-    z-index: 100;
-}
-
-.course-section {
-    position: absolute;
-    align-content: center;
-    z-index: 100;
-    background: green;
-    max-width: 100%;
-    opacity: 50%;
-}
-
-
