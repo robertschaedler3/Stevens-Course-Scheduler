@@ -1,22 +1,19 @@
-.internal-grid{
-    min-width:100%;
+.content {
+    align-content: center;
+    padding: 25px;
+    overflow: auto;
+}
+
+.container {
+    padding: 10px;
+}
+
+.days-container {
+    flex-wrap: nowrap;
 }
 
 .full-block {
-    // border: solid #333 2px;
     height:60px;
-}
-
-.inner-block {
-    border: solid #fff 1px;
-    border-radius: 3px;
-    background: #eee;
-    height: 15px;
-}
-
-.header-container {
-    align-content: center;
-    text-align: center;
 }
 
 .header {
@@ -38,6 +35,3 @@
     margin-bottom: 20px;
 }
 
-.days-container {
-    flex-wrap: nowrap;
-}
