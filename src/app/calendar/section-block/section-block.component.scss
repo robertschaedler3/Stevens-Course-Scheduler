@@ -1,12 +1,18 @@
-.course-section-body {
-    padding: 5px;
-}
-
 .course-section {
     position: absolute;
-    align-content: center;
-    z-index: 100;
-    background: green;
     max-width: 100%;
-    opacity: 50%;
+    z-index: 100;
+    margin: 0px;
+    padding: 10px;
+    background: #a32638;
+    color: #fff
+}
+
+.course-name {
+    bottom: 5px;
+  color: #eee;
+  display: block;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 12px;
 }

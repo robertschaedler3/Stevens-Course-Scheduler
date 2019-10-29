@@ -17,7 +17,7 @@ export class SectionBlockComponent {
 
   private timeToPixels(time: string) {
     let parts = time.split(':');
-    return (parseInt(parts[0]) - 8) * 60 + parseInt(parts[1] + this.offset);
+    return (parseInt(parts[0]) - 8) * 60 + parseInt(parts[1]) + this.offset;
   }
 
   startTime() {
