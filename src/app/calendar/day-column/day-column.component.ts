@@ -1,18 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { CourseLoaderService } from '../services/course-loader.service';
 
 @Component({
   selector: 'app-day-column',
   templateUrl: './day-column.component.html',
   styleUrls: ['./day-column.component.scss']
 })
-export class DayColumnComponent {
+export class DayColumnComponent implements OnInit {
 
-  day: string = "test";
+  sections = {};
+  ids = [];
 
   hours: String[] = ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM", "8PM"];
 
-  setDay(day) {
-    this.day = day;
+  @Input() day: string = '';
+
+  constructor() { }
+
+  ngOnInit() { }
+
+  public addCourse(id: string, startTime: string, endTime: string) {
+    this.ids.push(id);
+    this.sections[id] = {
+      'name': 'test',
+      'id': id,
+      'start': startTime,
+      'end': endTime
+    }
   }
 
 }
