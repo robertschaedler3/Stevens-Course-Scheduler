@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-section-block',
@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionBlockComponent implements OnInit {
 
-  constructor() { }
+  @Input() startTime: string;
+  @Input() endTime: string;
+
+  @Input() name: string;
+  @Input() id: string;
+
+  @ViewChild('mainCard', { static: false }) card: ElementRef;
+
+  constructor() {
+
+  }
 
   ngOnInit() {
+    // this.card.nativeElement.style = ""
+
   }
 
 }
