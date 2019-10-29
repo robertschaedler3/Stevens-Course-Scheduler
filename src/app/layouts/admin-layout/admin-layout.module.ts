@@ -15,8 +15,6 @@ import { CalendarComponent } from '../../calendar/calendar.component';
 import { DayColumnComponent } from '../../calendar/day-column/day-column.component';
 import { SectionBlockComponent } from '../../calendar/section-block/section-block.component';
 
-import { ColumnLoaderService } from '../../calendar/services/column-loader.service';
-import { CourseLoaderService } from '../../calendar/services/course-loader.service';
 
 import {
   MatButtonModule,
@@ -28,7 +26,9 @@ import {
   MatAutocompleteModule,
   MatGridListModule,
   MatProgressBarModule,
-  MatButtonToggleModule
+  MatButtonToggleModule,
+  MatDividerModule,
+  MatListModule
 } from '@angular/material';
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 @NgModule({
@@ -46,7 +46,9 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     MatAutocompleteModule,
     MatGridListModule,
     MatProgressBarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatDividerModule,
+    MatListModule
   ],
   declarations: [
     DashboardComponent,
