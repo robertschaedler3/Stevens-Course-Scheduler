@@ -33,7 +33,8 @@
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option"
               (onSelectionChange)="selectCourse(option)">
-              {{option}}
+              <span mat-line>{{option}}</span>
+              <!-- <small mat-line>Credits: {{courses[option]}}</small> -->
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
