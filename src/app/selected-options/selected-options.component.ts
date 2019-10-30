@@ -28,6 +28,8 @@ export class SelectedOptionsComponent implements OnInit {
   courses = {};
   sections = {};
 
+  credits = 0;
+
   constructor(public scheduler: SchedulerService) { }
 
   ngOnInit() {
@@ -50,6 +52,11 @@ export class SelectedOptionsComponent implements OnInit {
   sectionToggled(event) {
     const section = event.value;
     const callNumber = section.callNumber;
+    if (Object.keys(this.sections).indexOf(callNumber) >= 0) {
+      this.credits -= section.credits;
+    } else {
+      this.credits += section.credits;
+    }
     this.scheduler.toggleSection(section, callNumber);
   }
 

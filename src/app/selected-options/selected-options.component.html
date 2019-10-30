@@ -1,11 +1,15 @@
 <div class="card">
   <div class="card-header card-header-primary">
-    <h4 class="card-title">Selected</h4>
+    <div class="title-container">
+      <h4 class="card-title">Selected</h4>
+      <span class="title-spacer"></span>
+      <h6 class="credit-count">{{credits}} credits</h6>
+    </div>
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-12">
-        <div *ngIf="selected.length != 0 && selected[0] != ''">
+        <div *ngIf="selected.length != 0 && selected[0] != ''; else nothingSelected">
           <mat-list>
             <mat-list-item *ngFor="let course of selected" class="selected-item">
               <h4 mat-line>{{course}}</h4>
@@ -30,6 +34,11 @@
             </mat-list-item>
           </mat-list>
         </div>
+        <ng-template #nothingSelected>
+          <div class="center">
+            <p>Select a course above.</p>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>
