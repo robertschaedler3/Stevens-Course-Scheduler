@@ -1,8 +1,13 @@
 .content {
     align-content: center;
     padding: 25px;
-    overflow: auto;
+    overflow: scroll;
+    flex-wrap: nowrap;
 }
+
+.content::-webkit-scrollbar { width: 0 !important }
+.content { overflow: -moz-scrollbars-none; }
+.content { -ms-overflow-style: none; }
 
 .container {
     padding: 10px;
