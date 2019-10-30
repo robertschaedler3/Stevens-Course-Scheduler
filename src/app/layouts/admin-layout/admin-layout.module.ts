@@ -10,7 +10,6 @@ import { CanvasComponent } from '../../canvas/canvas.component';
 import { CoursesComponent } from '../../courses/courses.component';
 import { CalendarComponent } from '../../calendar/calendar.component';
 
-
 import {
   MatButtonModule,
   MatInputModule,
@@ -25,10 +24,12 @@ import {
   MatDividerModule,
   MatListModule
 } from '@angular/material';
+
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 import { ScheduleStatsComponent } from '../../schedule-stats/schedule-stats.component';
 import { SavedSchedulesComponent } from '../../saved-schedules/saved-schedules.component';
 import { StudyplanComponent } from '../../studyplan/studyplan.component';
+
 @NgModule({
   imports: [
     CommonModule,
