@@ -12,6 +12,7 @@ export class SectionBlockComponent {
   @Input() end;
   @Input() name;
   @Input() id;
+  @Input() code;
 
   private offset = 25;
 
