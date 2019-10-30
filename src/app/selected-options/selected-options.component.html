@@ -1,23 +1,29 @@
 <div class="card">
+  <div class="card-header card-header-primary">
+    <h4 class="card-title">Selected</h4>
+  </div>
   <div class="card-body">
     <div class="row">
       <div class="col-12">
-        <h6>Selected:</h6>
         <div *ngIf="selected.length != 0 && selected[0] != ''">
           <mat-list>
-            <mat-list-item *ngFor="let course of selected">
+            <mat-list-item *ngFor="let course of selected" class="selected-item">
               <h4 mat-line>{{course}}</h4>
-              <i class="material-icons" mat-list-icon>class</i>
               <p mat-line> {{courses[course][0].credits}} credits</p>
-              <div mat-line>
-                <mat-button-toggle-group #group="matButtonToggleGroup">
-                  <mat-button-toggle *ngFor="let section of courses[course]" [value]="section"
-                    (selectionChange)="sectionSelected($event)">
+              <span mat-line>
+                <mat-button-toggle-group #group="matButtonToggleGroup" multiple>
+                  <mat-button-toggle *ngFor="let section of courses[course]" matToolTip="section.instructor"
+                    [value]="section" (change)="sectionToggled($event)">
                     {{getSection(section.section)}}
                   </mat-button-toggle>
                 </mat-button-toggle-group>
-                <div mat-line *ngIf="group.value">Selected: {{group.value.callNumber | json}}</div>
-              </div>
+              </span>
+              <div mat-line></div>
+              <div mat-line *ngIf="group.value[0]; else zeros">{{group.value[0].currentEnrollment}} /
+                {{group.value[0].maxEnrollment}}</div>
+              <ng-template #zeros>
+                <div mat-line>0 / 0</div>
+              </ng-template>
             </mat-list-item>
           </mat-list>
         </div>

@@ -1,3 +1,16 @@
-mat-button-toggle-group {
-  overflow: auto;
+.mat-list-item-content{
+  padding:10px;
+  display: inline-block;
+}
+
+.selected-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  background: #eee;
+  border-radius: 8px;
+}
+
+.mat-button-toggle-checked {
+    background: #333;
+    color: #fff;
 }
