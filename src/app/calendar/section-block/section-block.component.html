@@ -1,7 +1,8 @@
 <div class="course-section card" [style.height]="duration()" [style.top]="startTime()" [style.left]="'0px'"
   [style.right]="'0px'">
   <div class="card-content">
-    <h5><span class="course-name">{{ (name.length > 8) ? (name | slice:0:8) + '...' : name}}</span></h5>
+    <h5><span class="course-code">{{code}}</span></h5>
+    <h5><span class="course-name">{{ (name.length > 15) ? (name | slice:0:13) + '...' : name}}</span></h5>
     <p><span class="call-number">{{id}}</span></p>
   </div>
 </div>
