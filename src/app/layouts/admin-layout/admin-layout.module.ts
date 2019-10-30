@@ -29,6 +29,7 @@ import {
   MatListModule
 } from '@angular/material';
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
+import { ScheduleStatsComponent } from '../../schedule-stats/schedule-stats.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -57,7 +58,8 @@ import { SelectedOptionsComponent } from '../../selected-options/selected-option
     CalendarComponent,
     SelectedOptionsComponent,
     DayColumnComponent,
-    SectionBlockComponent
+    SectionBlockComponent,
+    ScheduleStatsComponent
   ]
 })
 
