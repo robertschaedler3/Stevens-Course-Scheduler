@@ -26,16 +26,20 @@ export class SchedulerService {
     this.selectedList.next(this.selectedData);
   }
 
-  removeSelected(key: string) {
+  removeSelected(key: string, credits) {
     key = key.split(":")[1].trim();
     this.selectedData.splice(this.selectedData.indexOf(key));
     this.selectedList.next(this.selectedData);
+    let creditCount = 0;
     Object.keys(this.sectionData).forEach(section => {
       if (this.sectionData[section].title === key) {
+        creditCount += credits;
+        console.log(this.sectionData);
         delete this.sectionData[section];
       }
     })
     this.sectionDict.next(this.sectionData);
+    return creditCount;
   }
 
   setCourses(courses) {

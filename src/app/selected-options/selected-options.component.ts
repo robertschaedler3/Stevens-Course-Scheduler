@@ -60,8 +60,13 @@ export class SelectedOptionsComponent implements OnInit {
     this.scheduler.toggleSection(section, callNumber);
   }
 
-  delete(course) {
-    this.scheduler.removeSelected(course);
+  details(course) {
+    const callNumber = this.courses[course].callNumber;
+    console.log(callNumber);
+  }
+
+  delete(course, credits) {
+    this.credits -= this.scheduler.removeSelected(course, credits);
   }
 
 }

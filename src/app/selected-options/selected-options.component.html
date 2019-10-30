@@ -2,7 +2,7 @@
   <div class="card-header card-header-primary">
     <div class="title-container">
       <h4 class="card-title">Selected</h4>
-      <span class="title-spacer"></span>
+      <span class="spacer"></span>
       <h6 class="credit-count">{{credits}} credits</h6>
     </div>
   </div>
@@ -12,25 +12,27 @@
         <div *ngIf="selected.length != 0 && selected[0] != ''; else nothingSelected">
           <mat-list>
             <mat-list-item *ngFor="let course of selected" class="selected-item">
-              <h4 mat-line>{{course}}</h4>
-              <p mat-line> {{courses[course][0].credits}} credits</p>
+              <h4 mat-line>
+                {{course}}
+              </h4>
+              <p mat-line class="number-credits">
+                {{courses[course][0].credits}} credits
+              </p>
               <span mat-line>
-                <mat-button-toggle-group #group="matButtonToggleGroup" multiple>
-                  <mat-button-toggle *ngFor="let section of courses[course]" matToolTip="section.instructor"
-                    [value]="section" (change)="sectionToggled($event)">
-                    {{getSection(section.section)}}
-                  </mat-button-toggle>
-                </mat-button-toggle-group>
+                <div class="section-toggle-group">
+                  <mat-button-toggle-group class="section-toggle-group" #group="matButtonToggleGroup" multiple>
+                    <mat-button-toggle *ngFor="let section of courses[course]" class="toggle-button"
+                      matToolTip="section.instructor" [value]="section" (change)="sectionToggled($event)">
+                      {{getSection(section.section)}}
+                    </mat-button-toggle>
+                  </mat-button-toggle-group>
+                </div>
               </span>
-              <div mat-line></div>
-              <button mat-icon-button (click)="delete(course)">
-                <i class="material-icons">delete</i>
-              </button>
-              <div mat-line *ngIf="group.value[0]; else zeros">{{group.value[0].currentEnrollment}} /
-                {{group.value[0].maxEnrollment}}</div>
-              <ng-template #zeros>
-                <div mat-line>0 / 0</div>
-              </ng-template>
+              <span mat-line>
+                <!-- <button mat-raised-button class="btn btn-inverse btn-sm" (click)="details(course)">Details</button> -->
+                <button mat-raised-button class="btn btn-inverse btn-sm" mat-tool-tip="Remove this course."
+                  (click)="delete(course, courses[course][0].credits)">Remove</button>
+              </span>
             </mat-list-item>
           </mat-list>
         </div>

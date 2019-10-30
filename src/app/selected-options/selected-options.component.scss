@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.title-spacer {
+.spacer {
   flex: 1 1 auto;
 }
 
@@ -11,9 +11,8 @@
   padding: 0px;
 }
 
-.mat-list-item-content{
-  padding:10px;
-  display: inline-block;
+.number-credits {
+  color: #5c5c5c
 }
 
 .selected-item {
@@ -23,7 +22,25 @@
   border-radius: 8px;
 }
 
+.delete {
+  font-size: 20px;
+  color: #505050
+}
+
 .mat-button-toggle-checked {
     background: #333;
     color: #fff;
 }
+
+mat-button-toggle-group {
+  border: none;
+}
+
+.section-toggle-group {
+  overflow: scroll;
+  height:60px;
+}
+
+.section-toggle-group::-webkit-scrollbar { width: 0 !important }
+.section-toggle-group { overflow: -moz-scrollbars-none; }
+.section-toggle-group { -ms-overflow-style: none; }
