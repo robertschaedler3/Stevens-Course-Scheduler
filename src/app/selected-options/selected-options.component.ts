@@ -50,7 +50,11 @@ export class SelectedOptionsComponent implements OnInit {
   sectionToggled(event) {
     const section = event.value;
     const callNumber = section.callNumber;
-    this.scheduler.addSection(section, callNumber);
+    this.scheduler.toggleSection(section, callNumber);
+  }
+
+  delete(course) {
+    this.scheduler.removeSelected(course);
   }
 
 }

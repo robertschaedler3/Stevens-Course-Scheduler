@@ -19,6 +19,9 @@
                 </mat-button-toggle-group>
               </span>
               <div mat-line></div>
+              <button mat-icon-button (click)="delete(course)">
+                <i class="material-icons">delete</i>
+              </button>
               <div mat-line *ngIf="group.value[0]; else zeros">{{group.value[0].currentEnrollment}} /
                 {{group.value[0].maxEnrollment}}</div>
               <ng-template #zeros>

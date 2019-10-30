@@ -24,7 +24,18 @@ export class SchedulerService {
   addSelected(key) {
     this.selectedData.push(key);
     this.selectedList.next(this.selectedData);
-    console.log(this.coursesData[key]);
+  }
+
+  removeSelected(key: string) {
+    key = key.split(":")[1].trim();
+    this.selectedData.splice(this.selectedData.indexOf(key));
+    this.selectedList.next(this.selectedData);
+    Object.keys(this.sectionData).forEach(section => {
+      if (this.sectionData[section].title === key) {
+        delete this.sectionData[section];
+      }
+    })
+    this.sectionDict.next(this.sectionData);
   }
 
   setCourses(courses) {
@@ -32,7 +43,7 @@ export class SchedulerService {
     this.coursesDict.next(this.coursesData);
   }
 
-  addSection(section, callNumber) {
+  toggleSection(section, callNumber) {
     if (this.sectionData[callNumber]) {
       delete this.sectionData[callNumber];
     } else {
