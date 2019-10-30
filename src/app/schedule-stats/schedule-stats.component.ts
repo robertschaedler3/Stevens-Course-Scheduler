@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SchedulerService } from 'app/scheduler/scheduler.service';
 
 @Component({
   selector: 'app-schedule-stats',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleStatsComponent implements OnInit {
 
-  constructor() { }
+  credits = 0;
+
+  constructor(public scheduler: SchedulerService) { }
 
   ngOnInit() {
   }
