@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StorageServiceModule } from 'ngx-webstorage-service';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { DayColumnComponent } from '../../calendar/day-column/day-column.component';
@@ -36,6 +37,7 @@ import { StudyplanComponent } from '../../studyplan/studyplan.component';
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     ReactiveFormsModule,
+    StorageServiceModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
