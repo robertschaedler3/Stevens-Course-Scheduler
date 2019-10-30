@@ -30,11 +30,13 @@
               </span>
               <span mat-line>
                 <!-- <button mat-raised-button class="btn btn-inverse btn-sm" (click)="details(course)">Details</button> -->
-                <button mat-raised-button class="btn btn-inverse btn-sm" mat-tool-tip="Remove this course."
+                <button mat-raised-button class="btn btn-inverse btn-sm" matToolTip="Remove this course."
                   (click)="delete(course, courses[course][0].credits)">Remove</button>
               </span>
             </mat-list-item>
           </mat-list>
+          <button mat-raised-button type="button" class="btn btn-primary btn-sm"
+            matToolTip="Save your schedule for later." (click)="saveSchedule()">Save All</button>
         </div>
         <ng-template #nothingSelected>
           <div class="center">
