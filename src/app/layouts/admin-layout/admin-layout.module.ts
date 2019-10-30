@@ -4,14 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
-import { UpgradeComponent } from '../../upgrade/upgrade.component';
-
-import { CoursesComponent } from '../../courses/courses.component';
-import { CalendarComponent } from '../../calendar/calendar.component';
 import { DayColumnComponent } from '../../calendar/day-column/day-column.component';
 import { SectionBlockComponent } from '../../calendar/section-block/section-block.component';
+import { CanvasComponent } from '../../canvas/canvas.component';
+import { CoursesComponent } from '../../courses/courses.component';
+import { CalendarComponent } from '../../calendar/calendar.component';
 
 
 import {
@@ -30,6 +27,8 @@ import {
 } from '@angular/material';
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 import { ScheduleStatsComponent } from '../../schedule-stats/schedule-stats.component';
+import { SavedSchedulesComponent } from '../../saved-schedules/saved-schedules.component';
+import { StudyplanComponent } from '../../studyplan/studyplan.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -51,15 +50,15 @@ import { ScheduleStatsComponent } from '../../schedule-stats/schedule-stats.comp
   ],
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
-    NotificationsComponent,
-    UpgradeComponent,
+    SavedSchedulesComponent,
+    StudyplanComponent,
+    CanvasComponent,
     CoursesComponent,
     CalendarComponent,
     SelectedOptionsComponent,
     DayColumnComponent,
     SectionBlockComponent,
-    ScheduleStatsComponent
+    ScheduleStatsComponent,
   ]
 })
 
