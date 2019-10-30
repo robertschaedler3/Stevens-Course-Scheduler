@@ -1,6 +1,7 @@
 import { Component, ViewChildren, QueryList, AfterViewInit } from '@angular/core';
 
 import { DayColumnComponent } from './day-column/day-column.component';
+import { SchedulerService } from 'app/scheduler/scheduler.service';
 
 export interface Tile {
   color: string;
@@ -23,15 +24,29 @@ export class CalendarComponent implements AfterViewInit {
 
   service: any;
 
-  dayCols = {};
+  sections = {};
+
+  constructor(public scheduler: SchedulerService) { }
 
   ngAfterViewInit() {
-    console.log(this.cols)
-    this.cols.forEach(col => console.log(col))
+    this.scheduler.sections.subscribe(data => this.renderSections(data))
+  }
+
+  private renderSections(data) {
+    this.sections = data;
+    this.cols.forEach(col => {
+      col.reset();
+    })
+    Object.keys(this.sections).forEach(section => {
+      this.sections[section].daysTimeLocation.forEach(location => {
+        let classPeriod = this.sections[section];
+        this.displayCourse(classPeriod.title, classPeriod.callNumber, classPeriod.section, location.startTime, location.endTime, location.day);
+      })
+    })
   }
 
 
-  displayCourse(id: string, weekdays: string, start: string, end: string) {
+  displayCourse(name, id, code, start, end, weekdays) {
     for (let i = 0; i < weekdays.length; i++) {
       let col = null;
       switch (weekdays.charAt(i)) {
@@ -51,26 +66,18 @@ export class CalendarComponent implements AfterViewInit {
           col = this.getColumn('Friday');
           break;
       }
-      console.log(col);
-      col.addCourse(id, start, end);
+      col.addCourse(name, code, id, start, end);
     }
   }
 
   private getColumn(day: string) {
-    console.log("search:" + day)
     let result = null;
     this.cols.forEach(column => {
-      console.log(column.day)
       if (column.day === day) {
         result = column;
       }
     })
     return result;
-  }
-
-  test() {
-    this.displayCourse('12345', 'M', '11:00', '12:00');
-    console.log(this.cols)
   }
 
 }
