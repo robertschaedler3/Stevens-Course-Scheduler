@@ -10,7 +10,7 @@
     <div *ngIf="api.terms$ | async as terms; else loadingTerms">
       <mat-form-field>
         <mat-label>Term</mat-label>
-        <mat-select [(value)]="selectedTerm" (selectionChange)=termChanged($event)>
+        <mat-select [(value)]="selectedTerm" (selectionChange)="termChanged($event)">
           <mat-option *ngFor="let term of terms" [value]="term">
             {{term}}
           </mat-option>

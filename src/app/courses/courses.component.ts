@@ -58,13 +58,12 @@ export class CoursesComponent implements OnInit {
     return [''];
   }
 
-  termChanged(event): void {  // event will give you full brief of action
+  termChanged(event): void {
     const term = event.value;
     this.selectedTerm = term;
     this.api.getCourses(term).subscribe(courses => {
       this.processCourses(courses);
     });
-    console.log("Selected:" + term);
   }
 
   private getSectionAbrv(section: String): String {
@@ -99,7 +98,6 @@ export class CoursesComponent implements OnInit {
   }
 
   selectCourse(key: string) {
-    console.log(key);
     this.scheduler.addSelected(key);
     this.myControl.reset();
   }
