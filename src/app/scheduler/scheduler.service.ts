@@ -58,4 +58,11 @@ export class SchedulerService {
     this.sectionDict.next(this.sectionData)
   }
 
+  clear() {
+    this.sectionData = {};
+    this.selectedData = [];
+    this.sectionDict.next(this.sectionData);
+    this.selectedList.next(this.selectedData)
+  }
+
 }
