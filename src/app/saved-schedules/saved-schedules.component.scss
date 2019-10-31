@@ -1,0 +1,48 @@
+.schedule-name {
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.credits {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+    width: 45px;
+}
+
+.small-light {
+    font-weight: 200;
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 14px;
+    padding-left: 14px;
+}
+
+
+.people {
+    font-size: 20px;
+}
+
+.enrollment {
+    line-height: 14px;
+}
+
+div.container {
+    height: 10em;
+    position: relative 
+}
+div.container p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}

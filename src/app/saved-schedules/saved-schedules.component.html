@@ -1,8 +1,57 @@
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12">
-        <p>saved-schedules works</p>
+      <div class="col-md-8 ml-auto mr-auto">
+        <div *ngIf="names.length > 0; else noSchedules">
+          <div *ngFor="let name of names" class="col-8 offset-2">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <div class="title-container">
+                  <h4 class="card-title">{{name}}</h4>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12">
+                    <mat-list>
+                      <!-- <h3 mat-header class="schedule-name">{{name}}</h3> -->
+                      <mat-list-item *ngFor="let section of schedules[name]">
+                        <h6 mat-line><span class="title">{{section.title}}</span></h6>
+                        <span class="credits">{{section.credits}} credits</span>
+                        <p mat-line class="enrollment">
+                          <!-- <i class="material-icons people">people</i> -->
+                          <span class="enrollment small-light">{{section.currentEnrollment}} /
+                            {{section.maxEnrollment}}</span></p>
+                        <p mat-line class="small-light"><span class="small-light">{{section.instructor}}</span></p>
+                      </mat-list-item>
+                    </mat-list>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noSchedules>
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <div class="title-container">
+                <h4 class="card-title">No Schedules Saved</h4>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="container">
+                    <p>
+                      Create a new one <a matToolTip="Create a schedule."
+                        [routerLink]="['/dashboard']"><strong>here</strong></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService } from 'app/storage/localstorage.service';
 
 @Component({
   selector: 'app-saved-schedules',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SavedSchedulesComponent implements OnInit {
 
-  constructor() { }
+  names: Array<string>;
+  schedules = {};
+
+  constructor(private storage: LocalStorageService) { }
 
   ngOnInit() {
+    this.names = this.storage.getNames();
+    this.names.forEach(name => {
+      this.schedules[name] = this.storage.getSchedule(name);
+      console.log(this.storage.getSchedule(name))
+    })
   }
 
 }
