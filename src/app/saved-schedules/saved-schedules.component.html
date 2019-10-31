@@ -14,20 +14,27 @@
                 <div class="row">
                   <div class="col-12">
                     <mat-list>
-                      <!-- <h3 mat-header class="schedule-name">{{name}}</h3> -->
                       <mat-list-item *ngFor="let section of schedules[name]">
                         <h6 mat-line><span class="title">{{section.title}}</span></h6>
                         <span class="credits">{{section.credits}} credits</span>
                         <p mat-line class="enrollment">
-                          <!-- <i class="material-icons people">people</i> -->
                           <span class="enrollment small-light">{{section.currentEnrollment}} /
                             {{section.maxEnrollment}}</span></p>
                         <p mat-line class="small-light"><span class="small-light">{{section.instructor}}</span></p>
+                        <p mat-line class="small-light"><span class="small-light">{{section.callNumber}}</span></p>
                       </mat-list-item>
                     </mat-list>
                   </div>
                 </div>
+                <button mat-raised-button class="btn btn-inverse btn-sm" type="submit"
+                  (click)="delete(name)">Delete</button>
               </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8 offset-2">
+              <button mat-raised-button class="btn btn-primary btn-sm" type="submit" (click)="deleteAll()">DELETE
+                ALL</button>
             </div>
           </div>
         </div>
