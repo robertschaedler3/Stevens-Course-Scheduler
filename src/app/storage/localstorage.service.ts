@@ -23,7 +23,8 @@ export class LocalStorageService {
 
   public removeSchedule(name) {
     let scheduleNames: Array<string> = this.storage.get('schedules') || [];
-    scheduleNames.slice(scheduleNames.indexOf(name), 1);
+    scheduleNames.splice(scheduleNames.indexOf(name), 1);
+    this.storage.set('schedules', scheduleNames);
     this.storage.remove(name);
   }
 
