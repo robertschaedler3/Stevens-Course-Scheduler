@@ -11,6 +11,8 @@ import { CanvasComponent } from '../../canvas/canvas.component';
 import { CoursesComponent } from '../../courses/courses.component';
 import { CalendarComponent } from '../../calendar/calendar.component';
 
+import { ScheduleLoaderDialog } from '../../selected-options/selected-options.component';
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -23,13 +25,17 @@ import {
   MatProgressBarModule,
   MatButtonToggleModule,
   MatDividerModule,
-  MatListModule
+  MatListModule,
+  MatRadioModule,
+  MatDialogModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 import { SelectedOptionsComponent } from '../../selected-options/selected-options.component';
 import { ScheduleStatsComponent } from '../../schedule-stats/schedule-stats.component';
 import { SavedSchedulesComponent } from '../../saved-schedules/saved-schedules.component';
 import { StudyplanComponent } from '../../studyplan/studyplan.component';
+import { WebComponent } from '../../calendar/web/web.component';
 
 @NgModule({
   imports: [
@@ -49,7 +55,10 @@ import { StudyplanComponent } from '../../studyplan/studyplan.component';
     MatProgressBarModule,
     MatButtonToggleModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   declarations: [
     DashboardComponent,
@@ -62,7 +71,11 @@ import { StudyplanComponent } from '../../studyplan/studyplan.component';
     DayColumnComponent,
     SectionBlockComponent,
     ScheduleStatsComponent,
-  ]
+    WebComponent,
+    ScheduleLoaderDialog
+  ],
+  entryComponents: [ScheduleLoaderDialog]
+
 })
 
 export class AdminLayoutModule { }
