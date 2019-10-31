@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import * as _ from 'lodash';
@@ -39,6 +39,11 @@ export class ApiService {
       map(data => _.values(data)),
       // tap(console.log),
     );
+  }
+
+  getDescription(section: string) {
+    section.replace(" ", "%20");
+    return this.http.get(this.baseUrl + '/desc/' + section, { responseType: 'text' });
   }
 
 }
