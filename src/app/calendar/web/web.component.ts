@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WebComponent implements OnInit {
 
+  sections = {};
+  ids = [];
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  public addCourse(name, code, id) {
+    this.ids.push(id);
+    this.sections[id] = {
+      'name': name,
+      'code': code,
+    }
+  }
+
+  reset() {
+    this.sections = {}
+    this.ids = [];
   }
 
 }
