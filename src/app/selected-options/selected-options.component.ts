@@ -84,6 +84,17 @@ export class SelectedOptionsComponent implements OnInit {
 
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed: ' + result);
+        if (result !== undefined) {
+          let sections = this.storage.getSchedule(result);
+          Object.keys(sections).forEach(callNumber => {
+            this.scheduler.addSelected(this.getSectionAbrv(result[callNumber].section) + ": " + result.title);
+            this.scheduler.toggleSection(result[callNumber], callNumber);
+          })
+        } else {
+          this._snackBar.open('Error loading schedule!', "Dismiss", {
+            duration: 2000,
+          });
+        }
       });
     } else {
       this._snackBar.open('No saved schedules yet!', "Dismiss", {
@@ -91,6 +102,22 @@ export class SelectedOptionsComponent implements OnInit {
       });
     }
 
+  }
+
+  private getSectionAbrv(section: String): String {
+    var newEnd = section.length;
+    for (let i = section.length - 1; i > 0; i--) {
+      if (isNaN(parseInt(section.charAt(i)))) {
+        newEnd -= 1;
+      } else {
+        break;
+      }
+    }
+    if (newEnd === section.length) {
+      return section;
+    } else {
+      return section.substring(0, newEnd);
+    }
   }
 
   saveSchedule() {
@@ -115,7 +142,7 @@ export class SelectedOptionsComponent implements OnInit {
       message: section + "<hr><p>" + desc + "</p>"
 
     }, {
-      type: type[color],
+      type: 'success',
       timer: 5000,
       placement: {
         from: from,

@@ -21,4 +21,14 @@ export class SavedSchedulesComponent implements OnInit {
     })
   }
 
+  deleteAll() {
+    this.storage.clear();
+    location.reload()
+  }
+
+  delete(name) {
+    this.storage.removeSchedule(name);
+    location.reload()
+  }
+
 }
