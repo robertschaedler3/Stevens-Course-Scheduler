@@ -2,4 +2,4 @@
 
 Welcome to true pure awesomeness.
 
-[https://sitscheduler.web.app](sitscheduler.web.app)
+[sitscheduler.web.app](https://sitscheduler.web.app)
