@@ -1,0 +1,55 @@
+$header-height: 1.5rem;
+$hour-height: 3.5rem;
+$hour-cell-height: $hour-height / 4;
+$time-width: 4rem;
+
+.calendar-container {
+    display: flex;
+
+    p {
+        font-size: 13px;
+        margin: 0;
+    }
+}
+
+.time-container {
+    margin-top: $header-height;
+    width: $time-width;
+}
+
+.hour {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $hour-height;
+}
+
+.weekdays-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+
+    .weekday-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $header-height;
+    }
+
+    .weekday {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .hour {
+            display: flex;
+            flex-direction: column;
+
+            .hour-cell {
+                flex: 1;
+                width: 100%;
+                border: 1px solid #fff;
+            }
+        }
+    }
+}
