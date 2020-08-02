@@ -11,6 +11,7 @@ import { SchedulerComponent } from './scheduler/scheduler.component';
   imports: [
     CommonModule,
     CoreModule
-  ]
+  ],
+  exports: [SchedulerComponent]
 })
 export class LayoutsModule { }
