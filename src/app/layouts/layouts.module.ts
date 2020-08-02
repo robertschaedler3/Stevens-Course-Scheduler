@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SchedulerComponent } from './scheduler/scheduler.component';
+import { CoreModule } from '../core/core.module';
 
+// Layout Components
+import { SchedulerComponent } from './scheduler/scheduler.component';
 
 
 @NgModule({
   declarations: [SchedulerComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    CoreModule
   ]
 })
 export class LayoutsModule { }
