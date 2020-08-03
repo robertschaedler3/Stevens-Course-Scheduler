@@ -1,1 +1,12 @@
-<p>term-selector works!</p>
+<ng-container *ngIf="schduleData.terms$ | async as terms">
+    <!-- <pre>{{terms | json}}</pre> -->
+    <mat-form-field>
+        <mat-label>Term</mat-label>
+        <mat-select [value]="terms[0]" (selectionChange)="selectTerm($event.value)">
+            <mat-option *ngFor="let term of terms" [value]="term">
+                {{term}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-container>
+<!-- TODO: Add loading animation -->
