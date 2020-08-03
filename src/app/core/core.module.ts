@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+import { MaterialModule } from '../shared/material.module';
 
 // Core Components
 import { CalendarComponent } from './components/calendar/calendar.component';
@@ -14,7 +16,9 @@ import { TermSelectorComponent } from './components/term-selector/term-selector.
     TermSelectorComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule,
+    MaterialModule
   ],
   exports: [
     CalendarComponent,
